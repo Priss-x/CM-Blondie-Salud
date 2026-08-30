@@ -1,4 +1,4 @@
-# BlondieSalud
+# Blondie-Salud
 
 Proyecto desarrollado para Desarrollo Fullstack II.
 
