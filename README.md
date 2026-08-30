@@ -1,2 +1,22 @@
-# CM-Blondie-Salud
-Proyecto de agendamiento de horas médicas para centro medico - FullStack II
+# BlondieSalud
+
+Proyecto desarrollado para Desarrollo Fullstack II.
+
+## Descripción
+
+Blondie-Salud es una aplicación web para un centro médico que permitirá a los pacientes registrarse, iniciar sesión y agendar horas médicas.
+
+## Tecnologías
+
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+
+## Funcionalidades
+
+- Página de inicio
+- Registro de pacientes
+- Inicio de sesión
+- Agendamiento de horas médicas
+- Gestión de usuarios según rol
