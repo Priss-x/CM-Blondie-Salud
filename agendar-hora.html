@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamiento de hora</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="agendar-hora.html">Agendamiento de hora</a></li>
+            <li><a href="inicio-sesion.html">Iniciar sesion</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+        </ul>
+    </nav>
+
+    <h1>Agendamiento de hora medica</h1>
+
+    <label for="input-run-paciente"> RUN del paciente</label>
+    <input type="text" id="input-run-paciente" placeholder="Ingrese RUN sin puntos ni guion">
+
+    <br><br>
+
+    <label for="input-nombre-paciente">Nombre del paciente</label>
+    <input type="text" id="input-nombre-paciente" placeholder="Ingrese el nombre del paciente">
+
+    <br><br>
+
+    <label for="select-especialidad">Especialidad</label>
+    <select id="select-especialidad">
+        <option value="">
+            Seleccione una especialidad
+        </option>
+
+        <option value="medicina-general">
+            Medicina general
+        </option>
+        <option value="pediatria">
+            Pediatria
+        </option>
+
+        <option value="neurologia">
+            Neurologia
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <label for="select-medico">Medico</label>
+    <select id="select-medico">
+        <option value="">
+            Seleccione un medico
+        </option>
+    </select>
+
+    <br><br>
+
+    <label for="input-fecha-hora">Fecha</label>
+    <input type="date" id="input-fecha-hora">
+
+    <br><br>
+
+    <label for="select-hora">Hora</label>
+    <select id="select-hora">
+        <option value="">
+            Seleccione una hora
+        </option>
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="10:00">12:00</option>
+        <option value="15:00">15:00</option>
+    </select>  
+
+    <br><br>
+
+    <button id="btn-agendar">
+        Agendar hora
+    </button>
+
+    <script src="js/agendar-hora.js"></script>
+    
+</body>
+</html>
