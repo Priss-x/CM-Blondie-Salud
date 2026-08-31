@@ -1,9 +1,11 @@
-# Blondie-Salud
+
+# CM Blondie-Salud
 
 Proyecto desarrollado para Desarrollo Fullstack II.
 
 ## Descripción
-BlondieSalud es una aplicación web para un centro médico que permitirá a los pacientes registrarse, iniciar sesión y agendar horas médicas.
+
+Blondie-Salud es una aplicación web para un centro médico que permitirá a los pacientes registrarse, iniciar sesión y agendar horas médicas.
 
 ## Tecnologías
 

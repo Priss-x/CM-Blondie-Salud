@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Registro de pacientes</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="inicio-sesion.html">Iniciar sesión</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+        </ul>
+    </nav>
+
+    <h1>Registro de pacientes</h1>
+
+    <form id="form-registro">
+        <label for="input-run">RUN</label>
+        <input id="input-run" type="text" placeholder="Ej: 19011022K">
+        <br><br>
+
+        <label for="input-nombre">Nombre</label>
+        <input id="input-nombre" type="text" placeholder="Ingrese su nombre">
+
+        <br><br>
+
+        <label for="input-apellidos">Apellidos</label>
+        <input id="input-apellidos" type="text" placeholder="Ingrese sus apellidos">
+
+        <br><br>
+
+        <label for="input-email">Correo</label>
+        <input id="input-email" type="email" placeholder="Ingrese su correo">
+
+        <br><br>
+
+        <label for="input-fecha">Fecha de nacimiento</label>
+        <input id="input-fecha" type="date">
+
+        <br><br>
+
+        <label for="select-region">Región</label>
+        <select id="select-region">
+            <option value="">
+                Seleccione una región
+            </option>
+
+            <option value="metropolitana">
+                Región Metropolitana
+            </option>
+
+            <option value="valparaiso">
+                Valparaíso
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <label for ="select-comuna">Comuna</label>
+        <select id="select-comuna">
+            <option value="">Seleccione una comuna</option>
+        </select>
+
+        <br><br>
+
+        <label for="input-direccion">Dirección</label>
+
+        <input id="input-direccion" type="text" placeholder="Ingrese su dirección">
+
+        <br><br>
+
+        <label for="input-password">Contraseña</label>
+
+        <input id="input-password" type="password" placeholder="Ingrese una contraseña">
+
+        <br><br>
+
+        <button type="button" id="btn-registro">Registrarse</button>
+
+    </form>
+
+
+    <script src="js/registro.js"></script>
+
+</body>
+</html>
