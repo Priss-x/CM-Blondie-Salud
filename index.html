@@ -3,23 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Medico</title>
+
+    <title>Centro Médico Blondie-Salud</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
+
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="inicio-sesion.html">Iniciar sesion</a></li>
-            <li><a href="registro.html">Registrarse</a></li>
-            <li><a href=agendar-hora.html>Agendar hora</a></li>
-        </ul>
-    </nav>
-    <h1>Centro Medico Blondie-Salud</h1>
-    <p>
-        Bienvenido a nuestro centro medico.
-    </p>
-    <p>
-        Aqui podras consultar especialidades y agendar tus horas medicas.
-    </p>
+    <custom-navbar></custom-navbar>
+    <section class="carrusel-contenedor">
+        <div id="carouselBlondie" class="carousel slide carrusel-blondie" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselBlondie" data-bs-slide-to="0" class="active">
+                </button>
+                <button type="button" data-bs-target="#carouselBlondie" data-bs-slide-to="1">
+                </button>
+                <button type="button" data-bs-target="#carouselBlondie" data-bs-slide-to="2">
+                </button>
+            </div>
+
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/img/medico1.png" class="d-block w-100 imagen-carrusel" alt="Atención médica">
+                    <div class="carousel-caption d-none d-md-block">
+
+                        <h2>
+                            Tu salud es nuestra prioridad
+                        </h2>
+
+                        <p>
+                            Atención médica cercana y profesional.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assets/img/medico2.png" class="d-block w-100 imagen-carrusel" alt="Atención pediátrica">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>
+                            Profesionales para toda la familia
+                        </h2>
+                        <p>
+                            Medicina general, pediatría y neurología.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assets/img/centro_medico.png" class="d-block w-100 imagen-carrusel"
+                        alt="Centro Médico Blondie-Salud">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>
+                            Blondie-Salud
+                        </h2>
+
+                        <p>
+                            Un centro médico pensado para ti y tu familia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBlondie" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselBlondie" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+    </section>
+
+    <main>
+        <section class="seccion-bienvenida">
+            <div class="container">
+                <h1>
+                    Centro Médico Blondie-Salud
+                </h1>
+                <p class="lead">
+                    Bienvenido a nuestro centro médico.
+                </p>
+
+                <p>
+                    Aquí podrás consultar nuestras especialidades
+                    y agendar tus horas médicas.
+                </p>
+                <a href="agendar-hora.html" class="btn btn-blondie mt-3">
+                    Agendar hora
+                </a>
+            </div>
+        </section>
+
+        <section class="seccion-especialidades">
+            <div class="container">
+                <h2>
+                    Nuestras especialidades
+                </h2>
+
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <h5>
+                                    Medicina General
+                                </h5>
+                                <p>
+                                    Atención médica integral para pacientes adultos.
+                                </p>
+
+                                <a href="agendar-hora.html" class="btn btn-outline-blondie">
+                                    Agendar hora
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <h5>
+                                    Pediatría
+                                </h5>
+
+                                <p>
+                                    Atención especializada para niños y adolescentes.
+                                </p>
+
+                                <a href="agendar-hora.html" class="btn btn-outline-blondie">
+                                    Agendar hora
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <h5>
+                                    Neurología
+                                </h5>
+
+                                <p>
+                                    Evaluación y atención neurológica especializada.
+                                </p>
+
+                                <a href="agendar-hora.html" class="btn btn-outline-blondie">
+                                    Agendar hora
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="nosotros" class="seccion-nosotros">
+            <div class="container">
+                <h2>
+                    Sobre Blondie-Salud
+                </h2>
+                <p>
+                    Somos un centro médico orientado a entregar
+                    una atención cercana, accesible y de calidad
+                    para nuestros pacientes y sus familias.
+                </p>
+            </div>
+        </section>
+
+
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="js/componentes/navbar.js"></script>
+    <script src="js/componentes/footer.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
 </body>
 </html>

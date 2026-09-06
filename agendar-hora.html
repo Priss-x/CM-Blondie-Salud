@@ -1,86 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamiento de hora</title>
+
+    <title>Agendamiento de horas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="agendar-hora.html">Agendamiento de hora</a></li>
-            <li><a href="inicio-sesion.html">Iniciar sesion</a></li>
-            <li><a href="registro.html">Registrarse</a></li>
-        </ul>
-    </nav>
 
-    <h1>Agendamiento de hora medica</h1>
+    <custom-navbar></custom-navbar>
 
-    <label for="input-run-paciente"> RUN del paciente</label>
-    <input type="text" id="input-run-paciente" placeholder="Ingrese RUN sin puntos ni guion">
+    <main class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h1 class="text-center mb-4">
+                            Agendamiento de hora médica</h1>
 
-    <br><br>
+                        <div class="mb-3">
+                            <label for="input-run-paciente" class="form-label">
+                                RUN del paciente
+                            </label>
+                            <input type="text" id="input-run-paciente" class="form-control"
+                                placeholder="Ingrese RUN sin puntos ni guion">
 
-    <label for="input-nombre-paciente">Nombre del paciente</label>
-    <input type="text" id="input-nombre-paciente" placeholder="Ingrese el nombre del paciente">
+                        </div>
 
-    <br><br>
+                        <div class="mb-3">
+                            <label for="input-nombre-paciente" class="form-label">
+                                Nombre del paciente
+                            </label>
+                            <input type="text" id="input-nombre-paciente" class="form-control"
+                                placeholder="Ingrese el nombre del paciente">
 
-    <label for="select-especialidad">Especialidad</label>
-    <select id="select-especialidad">
-        <option value="">
-            Seleccione una especialidad
-        </option>
+                        </div>
 
-        <option value="medicina-general">
-            Medicina general
-        </option>
-        <option value="pediatria">
-            Pediatria
-        </option>
+                        <div class="mb-3">
+                            <label for="select-especialidad" class="form-label">
+                                Especialidad
+                            </label>
+                            <select id="select-especialidad" class="form-select">
+                                <option value="">
+                                    Seleccione una especialidad
+                                </option>
 
-        <option value="neurologia">
-            Neurologia
-        </option>
+                                <option value="medicina-general">
+                                    Medicina general
+                                </option>
 
-    </select>
+                                <option value="pediatria">
+                                    Pediatría
+                                </option>
 
-    <br><br>
+                                <option value="neurologia">
+                                    Neurología
+                                </option>
 
-    <label for="select-medico">Medico</label>
-    <select id="select-medico">
-        <option value="">
-            Seleccione un medico
-        </option>
-    </select>
+                            </select>
 
-    <br><br>
+                        </div>
 
-    <label for="input-fecha-hora">Fecha</label>
-    <input type="date" id="input-fecha-hora">
+                        <div class="mb-3">
+                            <label for="select-medico" class="form-label">
+                                Médico
+                            </label>
 
-    <br><br>
+                            <select id="select-medico" class="form-select">
 
-    <label for="select-hora">Hora</label>
-    <select id="select-hora">
-        <option value="">
-            Seleccione una hora
-        </option>
-        <option value="09:00">09:00</option>
-        <option value="10:00">10:00</option>
-        <option value="11:00">11:00</option>
-        <option value="10:00">12:00</option>
-        <option value="15:00">15:00</option>
-    </select>  
+                                <option value="">
+                                    Seleccione un médico
+                                </option>
 
-    <br><br>
+                            </select>
 
-    <button id="btn-agendar">
-        Agendar hora
-    </button>
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="input-fecha-hora" class="form-label">
+                                Fecha
+                            </label>
+                            <input type="date" id="input-fecha-hora" class="form-control">
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label for="select-hora" class="form-label">
+                                Hora
+                            </label>
+
+                            <select id="select-hora" class="form-select">
+
+                                <option value="">
+                                    Seleccione una hora
+                                </option>
+
+                                <option value="09:00">
+                                    09:00
+                                </option>
+
+                                <option value="10:00">
+                                    10:00
+                                </option>
+
+                                <option value="11:00">
+                                    11:00
+                                </option>
+
+                                <option value="12:00">
+                                    12:00
+                                </option>
+
+                                <option value="15:00">
+                                    15:00
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <button type="button" id="btn-agendar" class="btn btn-blondie w-100">
+                            Agendar hora
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <custom-footer></custom-footer>
 
     <script src="js/agendar-hora.js"></script>
-    
+
+    <script src="js/componentes/navbar.js"></script>
+    <script src="js/componentes/footer.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
 </body>
+
 </html>

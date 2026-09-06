@@ -29,6 +29,7 @@ const comunasPorRegion = {
 selectRegion.addEventListener("change", function() {
     const regionSeleccionada = selectRegion.value
     selectComuna.innerHTML = '<option value="">Seleccione una comuna</option>'
+    
     if (regionSeleccionada === "") {
         return
         }
@@ -46,8 +47,8 @@ selectRegion.addEventListener("change", function() {
 botonRegistro.addEventListener("click", function() {
 
     const run = inputRun.value
-    const nombre = inputNombre.value
-    const apellidos = inputApellidos.value
+    const nombre = inputNombre.value.trim()
+    const apellidos = inputApellidos.value.trim()
     const email = inputEmail.value
     const fecha = inputFecha.value
     const region = selectRegion.value
@@ -68,10 +69,6 @@ botonRegistro.addEventListener("click", function() {
         return
     }
 
-    if (run === ""){
-        alert("El RUN es de caracter obligatorio")
-        return
-    }
     if (nombre === ""){
         alert("El nombre es obligatorio")
         return
@@ -126,8 +123,24 @@ botonRegistro.addEventListener("click", function() {
         return
     }
 
-      /* aqui va la validacion de email */
+    if (!email.includes("@")) {
+        alert("Ingrese un correo válido")
+        return
+    }
+    if (!email.includes(".")) {
+        alert("Ingrese un correo válido")
+        return
+    }
+
+    if (email.includes(" ")) {
+        alert("El correo no puede contener espacios")
+        return
+    }
 
     alert("Paciente registrado con éxito")
+
+    document.getElementById("form-registro").reset()
+
+    selectComuna.innerHTML = '<option value="">Seleccione una comuna</option>'
 
 })

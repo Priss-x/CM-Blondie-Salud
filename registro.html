@@ -1,91 +1,172 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Registro de pacientes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="inicio-sesion.html">Iniciar sesión</a></li>
-            <li><a href="registro.html">Registrarse</a></li>
-        </ul>
-    </nav>
+    <custom-navbar></custom-navbar>
+    <main class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
 
-    <h1>Registro de pacientes</h1>
+                        <h1 class="text-center mb-4">
+                            Registro de pacientes
+                        </h1>
 
-    <form id="form-registro">
-        <label for="input-run">RUN</label>
-        <input id="input-run" type="text" placeholder="Ej: 19011022K">
-        <br><br>
+                        <form id="form-registro">
+                            <div class="mb-3">
+                                <label for="input-run" class="form-label">
+                                    RUN
+                                </label>
 
-        <label for="input-nombre">Nombre</label>
-        <input id="input-nombre" type="text" placeholder="Ingrese su nombre">
+                                <input id="input-run" type="text" class="form-control" placeholder="Ej: 19011022K">
 
-        <br><br>
+                            </div>
+                            <div class="mb-3">
 
-        <label for="input-apellidos">Apellidos</label>
-        <input id="input-apellidos" type="text" placeholder="Ingrese sus apellidos">
+                                <label for="input-nombre" class="form-label">
+                                    Nombre
+                                </label>
 
-        <br><br>
+                                <input id="input-nombre" type="text" class="form-control"
+                                    placeholder="Ingrese su nombre">
 
-        <label for="input-email">Correo</label>
-        <input id="input-email" type="email" placeholder="Ingrese su correo">
+                            </div>
+                            <div class="mb-3">
 
-        <br><br>
+                                <label for="input-apellidos" class="form-label">
+                                    Apellidos
+                                </label>
 
-        <label for="input-fecha">Fecha de nacimiento</label>
-        <input id="input-fecha" type="date">
+                                <input id="input-apellidos" type="text" class="form-control"
+                                    placeholder="Ingrese sus apellidos">
 
-        <br><br>
+                            </div>
+                            <div class="mb-3">
 
-        <label for="select-region">Región</label>
-        <select id="select-region">
-            <option value="">
-                Seleccione una región
-            </option>
+                                <label for="input-email" class="form-label">
+                                    Correo
+                                </label>
 
-            <option value="metropolitana">
-                Región Metropolitana
-            </option>
+                                <input id="input-email" type="email" class="form-control"
+                                    placeholder="Ingrese su correo">
+                            </div>
 
-            <option value="valparaiso">
-                Región de Valparaíso
-            </option>
+                            <div class="mb-3">
 
-        </select>
+                                <label for="input-fecha" class="form-label">
+                                    Fecha de nacimiento
+                                </label>
 
-        <br><br>
+                                <input id="input-fecha" type="date" class="form-control">
 
-        <label for ="select-comuna">Comuna</label>
-        <select id="select-comuna">
-            <option value="">Seleccione una comuna</option>
-        </select>
+                            </div>
 
-        <br><br>
+                            <div class="mb-3">
 
-        <label for="input-direccion">Dirección</label>
+                                <label for="select-region" class="form-label">
+                                    Región
+                                </label>
 
-        <input id="input-direccion" type="text" placeholder="Ingrese su dirección">
+                                <select id="select-region" class="form-select">
 
-        <br><br>
+                                    <option value="">
+                                        Seleccione una región
+                                    </option>
 
-        <label for="input-password">Contraseña</label>
+                                    <option value="metropolitana">
+                                        Región Metropolitana
+                                    </option>
 
-        <input id="input-password" type="password" placeholder="Ingrese una contraseña">
+                                    <option value="valparaiso">
+                                        Región de Valparaíso
+                                    </option>
 
-        <br><br>
+                                </select>
 
-        <button type="button" id="btn-registro">Registrarse</button>
+                            </div>
 
-    </form>
 
+                            <div class="mb-3">
+
+                                <label for="select-comuna" class="form-label">
+                                    Comuna
+                                </label>
+
+                                <select id="select-comuna" class="form-select">
+
+                                    <option value="">
+                                        Seleccione una comuna
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="input-direccion" class="form-label">
+                                    Dirección
+                                </label>
+
+                                <input id="input-direccion" type="text" class="form-control"
+                                    placeholder="Ingrese su dirección">
+
+                            </div>
+
+                            <div class="mb-4">
+
+                                <label for="input-password" class="form-label">
+                                    Contraseña
+                                </label>
+
+                                <input id="input-password" type="password" class="form-control"
+                                    placeholder="Ingrese una contraseña">
+
+                            </div>
+
+                            <button type="button" id="btn-registro" class="btn btn-blondie w-100">
+
+                                Registrarse
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <custom-footer></custom-footer>
 
     <script src="js/registro.js"></script>
 
+    <script src="js/componentes/navbar.js"></script>
+
+    <script src="js/componentes/footer.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
 </body>
+
 </html>
