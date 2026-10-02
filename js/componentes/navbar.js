@@ -44,11 +44,9 @@ class Navbar extends HTMLElement {
 
                             </a>
 
-
                             <a
                                 class="nav-link"
                                 href="reagendar-hora.html">
-
                                 Reagendar
 
                             </a>
@@ -57,7 +55,6 @@ class Navbar extends HTMLElement {
                             <a
                                 class="nav-link"
                                 href="index.html#nosotros">
-
                                 Nosotros
 
                             </a>
@@ -66,7 +63,6 @@ class Navbar extends HTMLElement {
                             <a
                                 class="nav-link"
                                 href="inicio-sesion.html">
-
                                 Iniciar sesión
 
                             </a>
@@ -75,17 +71,13 @@ class Navbar extends HTMLElement {
                             <a
                                 class="btn btn-blondie ms-lg-3"
                                 href="registro.html">
-
                                 Registrarse
 
                             </a>
 
                         </div>
-
                     </div>
-
                 </div>
-
             </nav>
 
         `

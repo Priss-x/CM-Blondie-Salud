@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Reagendar hora | Blondie-Salud</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <custom-navbar></custom-navbar>
+
+
+    <main class="container mt-5 mb-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-8 col-lg-6">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body p-4">
+
+                        <h1 class="text-center mb-3">
+                            Reagendar hora médica
+                        </h1>
+
+                        <p class="text-center mb-4">
+                            Ingresa los datos de tu cita para seleccionar
+                            una nueva fecha y hora.
+                        </p>
+
+
+                        <form id="form-reagendar">
+
+                            <div class="mb-3">
+
+                                <label
+                                    for="input-run"
+                                    class="form-label">
+                                    RUN del paciente
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="input-run"
+                                    class="form-control"
+                                    placeholder="Ingrese RUN sin puntos ni guion">
+
+                            </div>
+
+
+                            <div class="mb-3">
+
+                                <label
+                                    for="input-fecha"
+                                    class="form-label">
+                                    Nueva fecha
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="input-fecha"
+                                    class="form-control">
+
+                            </div>
+
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="select-hora"
+                                    class="form-label">
+                                    Nueva hora
+                                </label>
+
+                                <select
+                                    id="select-hora"
+                                    class="form-select">
+
+                                    <option value="">
+                                        Seleccione una hora
+                                    </option>
+
+                                    <option value="09:00">
+                                        09:00
+                                    </option>
+
+                                    <option value="10:00">
+                                        10:00
+                                    </option>
+
+                                    <option value="11:00">
+                                        11:00
+                                    </option>
+
+                                    <option value="12:00">
+                                        12:00
+                                    </option>
+
+                                    <option value="15:00">
+                                        15:00
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="btn-reagendar"
+                                class="btn btn-blondie w-100">
+
+                                Reagendar hora
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <custom-footer></custom-footer>
+
+
+    <script src="js/componentes/navbar.js"></script>
+
+    <script src="js/componentes/footer.js"></script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+
+</html>

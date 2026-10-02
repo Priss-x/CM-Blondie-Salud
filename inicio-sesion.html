@@ -1,26 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesion</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a> </li>
-            <li><a href="inicio-sesion.html">Iniciar sesion</a></li>
-            <li><a href="registro.html">Registrarse</a>
-            </li>
-        </ul>
-    </nav>
-    <h1>Iniciar sesion</h1>
-    <input id="input-email"type="email" placeholder="Ingrese su correo">
-    <input id="input-password" type="password" placeholder="Ingrese su contraseña">
 
-    <button id="btn-inicio-sesion">Iniciar sesion</button>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iniciar sesión | Blondie-Salud</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <custom-navbar></custom-navbar>
+
+
+    <main class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-5">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h1 class="text-center mb-3">Iniciar sesión </h1>
+                        <p class="text-center mb-4">
+                            Ingresa tus datos para acceder a Blondie-Salud.
+                        </p>
+                        <form id="form-inicio-sesion">
+
+                            <div class="mb-3">
+
+                                <label for="input-email" class="form-label">
+                                    Correo electrónico
+                                </label>
+
+                                <input type="email" id="input-email" class="form-control"
+                                    placeholder="Ingrese su correo">
+
+                            </div>
+
+
+                            <div class="mb-4">
+                                <label for="input-password" class="form-label">
+                                    Contraseña
+                                </label>
+                                <input type="password" id="input-password" class="form-control"
+                                    placeholder="Ingrese su contraseña">
+
+                            </div>
+
+                            <button type="button" id="btn-inicio-sesion" class="btn btn-blondie w-100">
+                                Ingresar
+                            </button>
+
+                        </form>
+
+                        <hr class="my-4">
+                        <p class="text-center mb-0">
+                            ¿No posee una cuenta?
+                            <a href="registro.html">Regístrate aquí</a>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
 
     <script src="js/inicio-sesion.js"></script>
 
+    <script src="js/componentes/navbar.js"></script>
+    <script src="js/componentes/footer.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
 </body>
+
 </html>

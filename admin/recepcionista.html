@@ -1,19 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Recepcionista</title>
+
+    <title>Panel Recepcionista | Blondie-Salud</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-    <h1>Panel Recepcionista</h1>
-    <p>
-        Desde aqui se podra gestionar las horas medicas.
-    </p>
+
+    <custom-navbar></custom-navbar>
+
+
+    <main class="container mt-5 mb-5">
+        <section class="text-center mb-5">
+            <h1>Panel Recepcionista</h1>
+            <p>
+                Bienvenida al sistema de recepción del
+                Centro Médico Blondie-Salud.
+            </p>
+
+        </section>
+
+        <section>
+            <h2 class="mb-4">Gestión de horas médicas</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <h3>Agendar hora</h3>
+                            <p>
+                                Registra una nueva hora médica
+                                para un paciente.
+                            </p>
+                            <a
+                                href="../agendar-hora.html"
+                                class="btn btn-blondie">
+                                Agendar hora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <h3>Reagendar hora</h3>
+                            <p>
+                                Modifica la fecha u hora de
+                                una cita existente.
+                            </p>
+
+                            <a
+                                href="../reagendar-hora.html"
+                                class="btn btn-blondie">
+                                Reagendar hora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <h3>Citas médicas</h3>
+                            <p>
+                                Consulta las horas médicas
+                                registradas en el sistema.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="btn btn-blondie">Ver citas
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="mt-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="mb-3">Atención de pacientes</h2>
+                    <p>
+                        Desde este panel puedes gestionar las horas
+                        médicas y apoyar la atención de los pacientes
+                        de Blondie-Salud.
+                    </p>
+                    <a href="../index.html"class="btn btn-outline-dark">
+                        Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <custom-footer></custom-footer>
+
 
     <script src="../js/recepcionista.js"></script>
+    <script src="../js/componentes/navbar.js"></script>
+    <script src="../js/componentes/footer.js"></script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
 
 </body>
+
 </html>

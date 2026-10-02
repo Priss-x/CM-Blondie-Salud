@@ -5,14 +5,11 @@ class Footer extends HTMLElement {
         this.innerHTML = `
 
             <footer class="footer">
-
                 <div class="container">
-
                     <div class="row">
 
 
                         <div class="col-md-4">
-
                             <h5>
                                 Blondie-Salud
                             </h5>
@@ -21,18 +18,14 @@ class Footer extends HTMLElement {
                                 Centro Médico comprometido con una atención
                                 cercana, profesional y de calidad.
                             </p>
-
                         </div>
 
 
                         <div class="col-md-4">
-
                             <h5>
                                 Accesos rápidos
                             </h5>
-
                             <ul class="list-unstyled">
-
                                 <li>
                                     <a href="index.html">
                                         Inicio
@@ -63,7 +56,6 @@ class Footer extends HTMLElement {
 
 
                         <div class="col-md-4">
-
                             <h5>
                                 Contacto
                             </h5>
@@ -81,8 +73,6 @@ class Footer extends HTMLElement {
                             </p>
 
                         </div>
-
-
                     </div>
 
 
@@ -90,14 +80,11 @@ class Footer extends HTMLElement {
 
 
                     <p class="text-center mb-0">
-
                         © 2026 Blondie-Salud.
                         Todos los derechos reservados.
-
                     </p>
 
                 </div>
-
             </footer>
 
         `
