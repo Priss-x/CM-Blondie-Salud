@@ -183,3 +183,22 @@ body {
 .footer hr {
     border-color: #6f655e;
 }
+
+.footer-blondie {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.footer-blondie h3 {
+    color: #d2ad7b;
+    font-size: 1.2rem;
+}
+
+.footer-blondie a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-blondie a:hover {
+    color: #d2ad7b;
+}
