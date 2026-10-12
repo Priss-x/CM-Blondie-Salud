@@ -19,7 +19,7 @@ import "../css/style.css"
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Navbar />
             <Routes>
                 <Route path="/" element={<Inicio />} />
