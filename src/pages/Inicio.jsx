@@ -1,3 +1,5 @@
+import { Link } from "react-router"
+
 function Inicio() {
     return (
         <>
@@ -117,10 +119,8 @@ function Inicio() {
                             y agendar tus horas médicas.
                         </p>
 
-                        <a
-                            href="/agendar-hora"
-                            className="btn btn-blondie mt-3">Agendar hora
-                        </a>
+                        <Link to="/agendar-hora" className="btn btn-blondie"> Agendar hora
+                        </Link>
                     </div>
 
                 </section>

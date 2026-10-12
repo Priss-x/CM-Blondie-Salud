@@ -1,11 +1,12 @@
 
 import { useState } from "react"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 
 function InicioSesion() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [mensaje, setMensaje] = useState("")
+    const navigate = useNavigate()
 
     function iniciarSesion(evento) {
         evento.preventDefault()
@@ -16,14 +17,14 @@ function InicioSesion() {
 
         if (email === "admin@blondiesalud.cl" && password === "9999") {
             localStorage.setItem("rol_usuario", "admin")
-            window.location.href = "/admin"
+            navigate("/admin")
 
         } else if (
             email === "recepcionista@blondiesalud.cl" &&
             password === "9999"
         ) {
             localStorage.setItem("rol_usuario", "recepcionista")
-            window.location.href = "/recepcionista"
+            navigate("/recepcionista")
         } else {
             setMensaje("Correo o contraseña incorrectos")
         }
