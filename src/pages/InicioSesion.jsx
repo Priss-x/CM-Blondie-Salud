@@ -16,14 +16,14 @@ function InicioSesion() {
 
         if (email === "admin@blondiesalud.cl" && password === "9999") {
             localStorage.setItem("rol_usuario", "admin")
-            window.location.href = "/admin/index.html"
+            window.location.href = "/admin"
 
         } else if (
             email === "recepcionista@blondiesalud.cl" &&
             password === "9999"
         ) {
             localStorage.setItem("rol_usuario", "recepcionista")
-            window.location.href = "/admin/recepcionista.html"
+            window.location.href = "/recepcionista"
         } else {
             setMensaje("Correo o contraseña incorrectos")
         }
