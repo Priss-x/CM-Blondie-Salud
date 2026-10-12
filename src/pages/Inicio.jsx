@@ -33,7 +33,7 @@ function Inicio() {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <img
-                                src="/assets/img/medico1.png"
+                                src={`${import.meta.env.BASE_URL}assets/img/medico1.png`}
                                 className="d-block w-100 imagen-carrusel"
                                 alt="Atención médica"
                             />
@@ -50,7 +50,7 @@ function Inicio() {
 
                         <div className="carousel-item">
                             <img
-                                src="/assets/img/medico2.png"
+                                src={`${import.meta.env.BASE_URL}assets/img/medico2.png`}
                                 className="d-block w-100 imagen-carrusel"
                                 alt="Atención pediátrica"
                             />
@@ -67,7 +67,7 @@ function Inicio() {
 
                         <div className="carousel-item">
                             <img
-                                src="/assets/img/centro_medico.png"
+                                src={`${import.meta.env.BASE_URL}assets/img/centro_medico.png`}
                                 className="d-block w-100 imagen-carrusel"
                                 alt="Centro Médico Blondie-Salud"
                             />

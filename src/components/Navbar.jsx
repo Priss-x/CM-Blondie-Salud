@@ -6,9 +6,9 @@ function Navbar() {
 
                 <a className="navbar-brand" href="/">
                     <img
-                        src="/assets/img/logo.png"
+                        src={`${import.meta.env.BASE_URL}assets/img/logo.png`}
                         alt="Logo Blondie-Salud"
-                        className="logo-navbar"
+                        style={{width: "100px", height: "auto"}}
                     />
                 </a>
 
