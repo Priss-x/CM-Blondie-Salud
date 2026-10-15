@@ -129,24 +129,15 @@ function Inicio() {
                 <section className="seccion-especialidades">
                     <div className="container">
                         <h2>Nuestras especialidades</h2>
-
-
                         <div className="row g-4">
                             <div className="col-md-4">
                                 <div className="card h-100 shadow-sm">
                                     <div className="card-body text-center">
+
                                         <h5>Medicina General</h5>
-
-                                        <p>
-                                            Atención médica integral para pacientes adultos.
-                                        </p>
-
-                                        <a
-                                            href="/agendar-hora"
-                                            className="btn btn-outline-blondie">
-                                            Agendar hora
-                                        </a>
-
+                                        <p>Atención médica integral para pacientes adultos.</p>
+                                        <Link to="/agendar-hora" className="btn btn-outline-blondie">Agendar hora
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -156,35 +147,23 @@ function Inicio() {
                                 <div className="card h-100 shadow-sm">
                                     <div className="card-body text-center">
                                         <h5>Pediatría</h5>
-                                        <p>
-                                            Atención especializada para niños y adolescentes.
-                                        </p>
-
-                                        <a
-                                            href="/agendar-hora"
-                                            className="btn btn-outline-blondie">
+                                        <p>Atención especializada para niños y adolescentes.</p>
+                                        <Link to="/agendar-hora" className="btn btn-outline-blondie">
                                             Agendar hora
-                                        </a>
+                                        </Link>
 
                                     </div>
                                 </div>
                             </div>
 
-
                             <div className="col-md-4">
                                 <div className="card h-100 shadow-sm">
                                     <div className="card-body text-center">
                                         <h5>Neurología</h5>
-                                        <p>
-                                            Evaluación y atención neurológica especializada.
-                                        </p>
-                                        
-                                        <a
-                                            href="/agendar-hora"
-                                            className="btn btn-outline-blondie">
+                                        <p>Evaluación y atención neurológica especializada.</p>
+                                        <Link to="/agendar-hora" className="btn btn-outline-blondie">
                                             Agendar hora
-                                        </a>
-
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -198,11 +177,9 @@ function Inicio() {
                     className="seccion-nosotros">
                     <div className="container">
                         <h2>Sobre Blondie-Salud </h2>
-                        <p>
-                            Somos un centro médico orientado a entregar
+                        <p>Somos un centro médico orientado a entregar
                             una atención cercana, accesible y de calidad
-                            para nuestros pacientes y sus familias.
-                        </p>
+                            para nuestros pacientes y sus familias.</p>
                     </div>
                 </section>
             </main>

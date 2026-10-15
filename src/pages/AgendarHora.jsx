@@ -55,13 +55,12 @@ function AgendarHora() {
             return
         }
 
-        const runSinPuntos = run.replaceAll(".", "").replace("-", "")
-        if (runSinPuntos.length < 8 || runSinPuntos.length > 9) {
-            setMensaje("Ingrese un RUN válido.")
+        if (run.length < 8 || run.length > 9 || isNaN(run) ||run.includes("-") ||run.includes(".") ||run.includes(" ")) {
+            setMensaje("Ingrese un RUN válido, solo números.")
             return
         }
-        if (fecha < fechaHoy) {
-            setMensaje("No puede agendar una fecha pasada.")
+
+        if (fecha < fechaHoy) {setMensaje("No puede agendar una fecha pasada.")
             return
         }
         const reservas = JSON.parse(

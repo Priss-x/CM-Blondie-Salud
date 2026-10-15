@@ -1,14 +1,27 @@
 
-import { Link } from "react-router"
+import { useState, useEffect } from "react"
+import { Link, useNavigate, useLocation } from "react-router"
 
 function Navbar() {
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const [rol, setRol] = useState(
+        localStorage.getItem("rol_usuario")
+    )
+
+    useEffect(() => {setRol(localStorage.getItem("rol_usuario"))}, [location])
+
+    function cerrarSesion() {localStorage.removeItem("rol_usuario")
+        setRol(null)
+        navigate("/")
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark navbar-blondie">
             <div className="container">
-
                 <Link className="navbar-brand" to="/">
-                    <img
-                        src={`${import.meta.env.BASE_URL}assets/img/logo.png`}
+                    <img src={`${import.meta.env.BASE_URL}assets/img/logo.png`}
                         alt="Logo Blondie-Salud"
                         style={{ width: "100px", height: "auto" }}
                     />
@@ -29,15 +42,29 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarBlondie">
                     <div className="navbar-nav ms-auto">
                         <Link className="nav-link" to="/"> Inicio </Link>
-                        <Link className="nav-link" to="/agendar-hora"> Agendar hora </Link>
+                        <Link className="nav-link" to="/agendar-hora">Agendar hora</Link>
+                        <Link className="nav-link" to="/agendar-examen">Laboratorio clínico</Link>
                         <Link className="nav-link" to="/reagendar-hora">Reagendar</Link>
-                        <Link className="nav-link" to="/#nosotros">
-                            Nosotros
-                        </Link>
-                        <Link className="nav-link" to="/inicio-sesion">Iniciar sesión </Link>
-                        <Link className="btn btn-blondie ms-lg-3" to="/registro">
-                            Registrarse
-                        </Link>
+                        <Link className="nav-link" to="/#nosotros">Nosotros </Link>
+                        
+                        {rol ? (
+                            <>
+                                <span className="nav-link">
+                                    Hola, {rol === "admin"
+                                        ? "Administrador"
+                                        : "Recepcionista"}
+                                </span>
+
+                                <button className="btn btn-blondie ms-lg-3" onClick={cerrarSesion}>
+                                    Cerrar sesión
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <Link className="nav-link" to="/inicio-sesion">Iniciar sesión </Link>
+                                <Link className="btn btn-blondie ms-lg-3"to="/registro">Registrarse</Link>
+                            </>
+                        )}
 
                     </div>
                 </div>

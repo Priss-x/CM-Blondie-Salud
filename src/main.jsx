@@ -14,6 +14,7 @@ import InicioSesion from "./pages/InicioSesion.jsx"
 import Administrador from "./pages/Administrador.jsx"
 import Recepcionista from "./pages/Recepcionista.jsx"
 import ReagendarHora from "./pages/ReagendarHora.jsx"
+import AgendarExamen from "./pages/AgendarExamen.jsx"
 
 import "../css/style.css"
 
@@ -29,6 +30,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="/admin" element={<Administrador />} />
                 <Route path="/recepcionista" element={<Recepcionista />} />
                 <Route path="/reagendar-hora" element={<ReagendarHora />} />
+                <Route path="/agendar-examen" element={<AgendarExamen />} />
             </Routes>
             <Footer />
 

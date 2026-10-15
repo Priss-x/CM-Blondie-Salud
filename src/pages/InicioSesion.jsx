@@ -3,13 +3,14 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router"
 
 function InicioSesion() {
+    const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [mensaje, setMensaje] = useState("")
-    const navigate = useNavigate()
 
     function iniciarSesion(evento) {
         evento.preventDefault()
+
         if (email === "" || password === "") {
             setMensaje("Debe completar todos los campos")
             return
@@ -19,15 +20,11 @@ function InicioSesion() {
             localStorage.setItem("rol_usuario", "admin")
             navigate("/admin")
 
-        } else if (
-            email === "recepcionista@blondiesalud.cl" &&
-            password === "9999"
-        ) {
+        } else if ( email === "recepcionista@blondiesalud.cl" &&password === "9999") {
             localStorage.setItem("rol_usuario", "recepcionista")
             navigate("/recepcionista")
-        } else {
-            setMensaje("Correo o contraseña incorrectos")
-        }
+
+        } else {setMensaje("Correo o contraseña incorrectos")}
     }
 
     return (
@@ -36,19 +33,14 @@ function InicioSesion() {
                 <div className="col-md-7 col-lg-5">
                     <div className="card shadow-sm">
                         <div className="card-body p-4">
-                            <h1 className="text-center mb-3">
-                                Iniciar sesión
-                            </h1>
+                            <h1 className="text-center mb-3">Iniciar sesión </h1>
                             <p className="text-center mb-4">
                                 Ingresa tus datos para acceder a Blondie-Salud.
                             </p>
 
                             <form onSubmit={iniciarSesion}>
                                 <div className="mb-3">
-                                    <label className="form-label">
-                                        Correo electrónico
-                                    </label>
-
+                                    <label className="form-label">Correo electrónico</label>
                                     <input
                                         type="email"
                                         className="form-control"
@@ -57,14 +49,10 @@ function InicioSesion() {
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
                                     />
-
                                 </div>
 
                                 <div className="mb-4">
-                                    <label className="form-label">
-                                        Contraseña
-                                    </label>
-
+                                    <label className="form-label">Contraseña</label>
                                     <input
                                         type="password"
                                         className="form-control"
@@ -73,13 +61,9 @@ function InicioSesion() {
                                         onChange={(e) => setPassword(e.target.value)}
                                         required
                                     />
-
                                 </div>
 
-                                <button
-                                    type="submit"
-                                    className="btn btn-blondie w-100"
-                                >
+                                <button type="submit" className="btn btn-blondie w-100">
                                     Ingresar
                                 </button>
 
@@ -88,7 +72,6 @@ function InicioSesion() {
                                         {mensaje}
                                     </div>
                                 )}
-
                             </form>
 
                             <hr className="my-4" />
@@ -98,6 +81,7 @@ function InicioSesion() {
                                     Regístrate aquí
                                 </Link>
                             </p>
+
                         </div>
                     </div>
                 </div>
