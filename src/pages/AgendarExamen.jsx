@@ -70,7 +70,7 @@ function AgendarExamen() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Ejemplo: 198009385"
+                                        placeholder="Ejemplo: 197894569"
                                         value={run}
                                         onChange={(e) => setRun(e.target.value)}
                                         required

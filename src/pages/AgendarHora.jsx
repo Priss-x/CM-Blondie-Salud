@@ -63,34 +63,17 @@ function AgendarHora() {
         if (fecha < fechaHoy) {setMensaje("No puede agendar una fecha pasada.")
             return
         }
-        const reservas = JSON.parse(
-            localStorage.getItem("horas_agendadas")
-        ) || []
-        const ocupada = reservas.some((reserva) =>
-            reserva.medico === medico &&
-            reserva.fecha === fecha &&
-            reserva.hora === hora
-        )
+        const reservas = JSON.parse(localStorage.getItem("horas_agendadas")) || []
+        const ocupada = reservas.some((reserva) =>reserva.medico === medico && reserva.fecha === fecha && reserva.hora === hora)
 
-        if (ocupada) {
-            setMensaje("Esta hora ya está ocupada. Por favor seleccione otra.")
+        if (ocupada) {setMensaje("Esta hora ya está ocupada. Por favor seleccione otra.")
             return
         }
-        const nuevaReserva = {
-            run: run,
-            nombre: nombre,
-            especialidad: especialidad,
-            medico: medico,
-            fecha: fecha,
-            hora: hora
-        }
+        const nuevaReserva = {run: run,nombre: nombre,especialidad: especialidad,medico: medico,fecha: fecha,hora: hora}
 
         reservas.push(nuevaReserva)
 
-        localStorage.setItem(
-            "horas_agendadas",
-            JSON.stringify(reservas)
-        )
+        localStorage.setItem("horas_agendadas",JSON.stringify(reservas))
 
         setMensaje("¡Hora agendada correctamente!")
         setRun("")
@@ -120,7 +103,7 @@ function AgendarHora() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="12345678-9"
+                                        placeholder="123456789"
                                         value={run}
                                         onChange={(e) => setRun(e.target.value)}
                                         required
@@ -149,29 +132,15 @@ function AgendarHora() {
                                         }}
                                         required
                                     >
-                                        <option value="">
-                                            Seleccione especialidad
-                                        </option>
-
-                                        <option value="Medicina General">
-                                            Medicina General
-                                        </option>
-
-                                        <option value="Pediatría">
-                                            Pediatría
-                                        </option>
-
-                                        <option value="Neurología">
-                                            Neurología
-                                        </option>
+                                        <option value="">Seleccione especialidad</option>
+                                        <option value="Medicina General">Medicina General</option>
+                                        <option value="Pediatría">Pediatría</option>
+                                        <option value="Neurología">Neurología</option>
                                     </select>
                                 </div>
 
                                 <div className="mb-3">
-                                    <label className="form-label">
-                                        Médico
-                                    </label>
-
+                                    <label className="form-label">Médico</label>
                                     <select
                                         className="form-select"
                                         value={medico}
@@ -179,9 +148,7 @@ function AgendarHora() {
                                         disabled={especialidad === ""}
                                         required
                                     >
-                                        <option value="">
-                                            Seleccione médico
-                                        </option>
+                                        <option value="">Seleccione médico</option>
 
                                         {especialidad !== "" &&
                                             medicos[especialidad].map((doctor) => (
@@ -194,9 +161,7 @@ function AgendarHora() {
                                 </div>
 
                                 <div className="mb-3">
-                                    <label className="form-label">
-                                        Fecha
-                                    </label>
+                                    <label className="form-label">Fecha</label>
 
                                     <input
                                         type="date"
