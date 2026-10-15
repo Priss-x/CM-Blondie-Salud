@@ -41,14 +41,11 @@ function Registro() {
             setMensaje("El RUN es obligatorio")
             return
         }
-
-        if (run.includes(".") || run.includes("-")) {
-            setMensaje("Ingrese el RUN sin puntos ni guion")
+        if (isNaN(run) ||run.includes(".") ||run.includes("-") ||run.includes(" ")) {setMensaje("El RUN debe contener solo números")
             return
         }
 
-        if (run.length < 7 || run.length > 9) {
-            setMensaje("El RUN debe tener entre 7 y 9 caracteres")
+        if (run.length < 8 || run.length > 9) {setMensaje("El RUN debe tener entre 8 y 9 caracteres")
             return
         }
 
@@ -95,17 +92,8 @@ function Registro() {
         if (fecha > fechaHoy) {
             setMensaje("La fecha de nacimiento no puede ser futura")
             return
-}
-        const hoy = new Date()
-        const fechaHoy =
-            hoy.getFullYear() + "-" +
-            String(hoy.getMonth() + 1).padStart(2, "0") + "-" +
-            String(hoy.getDate()).padStart(2, "0")
-
-        if (fecha > fechaHoy) {
-            setMensaje("La fecha de nacimiento no puede ser futura")
-            return
         }
+
         if (region === "") {
             setMensaje("La región es obligatoria")
             return
@@ -133,6 +121,19 @@ function Registro() {
             setMensaje("La contraseña debe tener entre 4 y 10 caracteres")
             return
         }
+        const pacientes = JSON.parse(localStorage.getItem("pacientes_registrados")) || []
+        const correoExiste = pacientes.some((paciente) => paciente.email === email.trim().toLowerCase())
+        const runExiste = pacientes.some((paciente) => paciente.run === run)
+
+        if (correoExiste || runExiste) {setMensaje("Ya existe un paciente con ese correo o RUN.")
+            return
+        }
+        const nuevoPaciente = {run: run,nombre: nombre,apellidos: apellidos,email: email.trim().toLowerCase(),fecha: fecha,region: region,
+            comuna: comuna,direccion: direccion,password: password}
+
+        pacientes.push(nuevoPaciente)
+
+        localStorage.setItem("pacientes_registrados",JSON.stringify(pacientes))
 
         setMensaje("¡Paciente registrado con éxito!")
         setRun("")
@@ -156,7 +157,7 @@ function Registro() {
                                 Registro de pacientes
                             </h1>
 
-                            <form onSubmit={registrarPaciente}>
+                            <form onSubmit={registrarPaciente} noValidate>
                                 <div className="mb-3">
                                     <label className="form-label">
                                         RUN

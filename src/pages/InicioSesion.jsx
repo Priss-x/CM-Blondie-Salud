@@ -24,7 +24,16 @@ function InicioSesion() {
             localStorage.setItem("rol_usuario", "recepcionista")
             navigate("/recepcionista")
 
-        } else {setMensaje("Correo o contraseña incorrectos")}
+        } else {
+            const pacientes = JSON.parse(localStorage.getItem("pacientes_registrados")) || []
+            const pacienteEncontrado = pacientes.find((paciente) =>paciente.email === email.trim().toLowerCase() &&
+            paciente.password === password)
+
+        if (pacienteEncontrado) {localStorage.setItem("rol_usuario", "paciente")
+                localStorage.setItem("paciente_actual", pacienteEncontrado.run)
+            navigate("/paciente")
+            } else {setMensaje("Correo o contraseña incorrectos")}
+        }
     }
 
     return (

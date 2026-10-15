@@ -12,7 +12,8 @@ function Navbar() {
 
     useEffect(() => {setRol(localStorage.getItem("rol_usuario"))}, [location])
 
-    function cerrarSesion() {localStorage.removeItem("rol_usuario")
+    function cerrarSesion() {localStorage.removeItem("rol_usuario") 
+        localStorage.removeItem("paciente_actual")
         setRol(null)
         navigate("/")
     }
@@ -52,8 +53,13 @@ function Navbar() {
                                 <span className="nav-link">
                                     Hola, {rol === "admin"
                                         ? "Administrador"
-                                        : "Recepcionista"}
+                                        : rol === "recepcionista"
+                                        ? "Recepcionista"
+                                        : "Paciente"}
                                 </span>
+
+                                {rol === "paciente" && (
+                                    <Link className="nav-link" to="/paciente">Mi panel</Link>)}
 
                                 <button className="btn btn-blondie ms-lg-3" onClick={cerrarSesion}>
                                     Cerrar sesión
