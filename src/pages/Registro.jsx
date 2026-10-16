@@ -1,5 +1,6 @@
 
 import { useState } from "react"
+import { crearPaciente } from "../data/pacientes"
 
 function Registro() {
     const [run, setRun] = useState("")
@@ -131,9 +132,7 @@ function Registro() {
         const nuevoPaciente = {run: run,nombre: nombre,apellidos: apellidos,email: email.trim().toLowerCase(),fecha: fecha,region: region,
             comuna: comuna,direccion: direccion,password: password}
 
-        pacientes.push(nuevoPaciente)
-
-        localStorage.setItem("pacientes_registrados",JSON.stringify(pacientes))
+        crearPaciente(nuevoPaciente)
 
         setMensaje("¡Paciente registrado con éxito!")
         setRun("")
