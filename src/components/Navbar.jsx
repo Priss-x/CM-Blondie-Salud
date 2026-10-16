@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import { Link, useNavigate, useLocation } from "react-router"
 
-function Navbar() {
+function Navbar({ nombreClinica = "Blondie-Salud" }) {
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -23,7 +23,7 @@ function Navbar() {
             <div className="container">
                 <Link className="navbar-brand" to="/">
                     <img src={`${import.meta.env.BASE_URL}assets/img/logo.png`}
-                        alt="Logo Blondie-Salud"
+                        alt={`Logo ${nombreClinica}`}
                         style={{ width: "100px", height: "auto" }}
                     />
                 </Link>
