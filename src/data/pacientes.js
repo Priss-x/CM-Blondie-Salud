@@ -1,43 +1,35 @@
 
-const CLAVE = "pacientes_registrados"
+const API_URL = "http://localhost:3000/api/pacientes"
 
-export function obtenerPacientes() {return JSON.parse(localStorage.getItem(CLAVE)) || []}
+function obtenerToken() {return sessionStorage.getItem("token")}
 
-export function crearPaciente(paciente) {
-    const pacientes = obtenerPacientes()
-    const existe = pacientes.some((p) => p.run === paciente.run || p.email === paciente.email)
-
-    if (existe) {return false}
-
-    pacientes.push(paciente)
-    localStorage.setItem(CLAVE, JSON.stringify(pacientes))
-    return true
+export async function obtenerPacientes() {
+    const respuesta = await fetch(API_URL, {
+        headers: {Authorization: `Bearer ${obtenerToken()}`}
+    })
+    if (!respuesta.ok) {throw new Error("Error al obtener pacientes")}
+    return await respuesta.json()
 }
 
+export async function crearPaciente(paciente) {
+    const respuesta = await fetch(API_URL, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(paciente)
+    })
 
-export function actualizarPaciente(run, datosNuevos) {
-    const pacientes = obtenerPacientes()
-    const indice = pacientes.findIndex((p) => p.run === run)
-
-    if (indice === -1) {return false}
-
-    pacientes[indice] = {
-        ...pacientes[indice],
-        ...datosNuevos,
-        run: run
-    }
-
-    localStorage.setItem(CLAVE, JSON.stringify(pacientes))
-    return true
+    return respuesta.ok
 }
-
-export function eliminarPaciente(run) {
-    const pacientes = obtenerPacientes()
-    const nuevosPacientes = pacientes.filter((p) => p.run !== run)
-    
-    if (nuevosPacientes.length === pacientes.length) {
-        return false
-    }
-    localStorage.setItem(CLAVE, JSON.stringify(nuevosPacientes))
-    return true
+export async function actualizarPaciente(run, datosNuevos) {
+    const respuesta = await fetch(`${API_URL}/${encodeURIComponent(run)}`,
+        {method: "PUT", headers: {"Content-Type": "application/json", Authorization: `Bearer ${obtenerToken()}`},body: JSON.stringify(datosNuevos)}
+    )
+    return respuesta.ok
+}
+export async function eliminarPaciente(run) {
+    const respuesta = await fetch(
+        `${API_URL}/${encodeURIComponent(run)}`,
+        {method: "DELETE",headers: {Authorization: `Bearer ${obtenerToken()}`}}
+    )
+    return respuesta.ok
 }

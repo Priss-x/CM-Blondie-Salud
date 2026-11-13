@@ -34,12 +34,10 @@ function Registro() {
             "Quilpue"]
     }
 
-    function registrarPaciente(evento) {
-
+    async function registrarPaciente(evento) {
         evento.preventDefault()
         setMensaje("")
-        if (run === "") {
-            setMensaje("El RUN es obligatorio")
+        if (run === "") {setMensaje("El RUN es obligatorio")
             return
         }
         if (isNaN(run) ||run.includes(".") ||run.includes("-") ||run.includes(" ")) {setMensaje("El RUN debe contener solo números")
@@ -122,20 +120,16 @@ function Registro() {
             setMensaje("La contraseña debe tener entre 4 y 10 caracteres")
             return
         }
-        const pacientes = JSON.parse(localStorage.getItem("pacientes_registrados")) || []
-        const correoExiste = pacientes.some((paciente) => paciente.email === email.trim().toLowerCase())
-        const runExiste = pacientes.some((paciente) => paciente.run === run)
+        
+        const nuevoPaciente = {run: run, nombre: nombre, apellidos: apellidos,email: email.trim().toLowerCase(),fecha: fecha,region: region,
+            comuna: comuna, direccion: direccion, password: password}
 
-        if (correoExiste || runExiste) {setMensaje("Ya existe un paciente con ese correo o RUN.")
-            return
-        }
-        const nuevoPaciente = {run: run,nombre: nombre,apellidos: apellidos,email: email.trim().toLowerCase(),fecha: fecha,region: region,
-            comuna: comuna,direccion: direccion,password: password}
-
-        crearPaciente(nuevoPaciente)
-
-        setMensaje("¡Paciente registrado con éxito!")
-        setRun("")
+        try {const registrado = await crearPaciente(nuevoPaciente)
+            if (!registrado) { setMensaje("No se pudo registrar el paciente. Verifique por favor si el RUN o correo ya existe")
+                return
+            }
+        setMensaje("Paciente registrado exitosamente")
+         setRun("")
         setNombre("")
         setApellidos("")
         setEmail("")
@@ -144,8 +138,13 @@ function Registro() {
         setComuna("")
         setDireccion("")
         setPassword("")
-    }
 
+    } catch (error) {setMensaje("No se pudo conectar al servidor")
+        return
+    }
+    
+}    
+        
     return (
         <main className="container mt-5 mb-5">
             <div className="row justify-content-center">
