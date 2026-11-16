@@ -1,56 +1,74 @@
 
-# CM Blondie-Salud
+# 🏥 Centro Médico Blondie-Salud
 
-Proyecto desarrollado para la asignatura **Desarrollo Fullstack II** de Duoc UC.
+Proyecto desarrollado para la asignatura **Fullstack II - Ingeniería en Informática, Duoc UC**.
 
-## Descripción
+Blondie-Salud es una aplicación web que permite gestionar pacientes y reservas de atención médica mediante una interfaz sencilla y conectada a una API REST.
 
-Blondie-Salud es una aplicación web para un centro médico que permite registrar pacientes, iniciar sesión y gestionar horas médicas y reservas de toma de muestras.
+## 🛠️ Tecnologías utilizadas
 
-El sistema cuenta con diferentes funcionalidades según el rol del usuario: administrador, recepcionista y paciente.
-
-## Tecnologías
-
-- HTML
-- CSS
+- React + Vite
 - JavaScript
-- React
-- Vite
+- HTML y CSS
 - Bootstrap
-- LocalStorage
+- React Router
+- Fetch API
 
-## Funcionalidades
+## 📋 Funcionalidades
 
-- Página de inicio con información del centro médico.
-- Registro e inicio de sesión de pacientes.
-- Acceso según rol de usuario.
-- Agendamiento y reagendamiento de horas médicas.
-- Reserva de horas para toma de muestras.
-- Panel de administrador para consultar pacientes, médicos y reservas.
-- Panel de recepcionista para gestionar citas y estados de toma de muestras.
-- Panel de paciente para consultar sus datos y reservas.
-- Validación de formularios.
+### Gestión de usuarios
+- Registro de pacientes con validaciones.
+- Inicio de sesión con autenticación JWT.
+- Acceso según roles: administrador, recepcionista y paciente.
+- Gestión de pacientes mediante operaciones CRUD.
 
-## Datos de prueba
+### Agendamientos
+- Reserva de horas médicas por especialidad y profesional.
+- Agendamiento de tomas de muestras de laboratorio.
+- Reagendamiento de horas médicas.
+- Validación de disponibilidad de horarios.
+- Generación de números de orden para las reservas.
 
-El proyecto utiliza datos ficticios para simular el funcionamiento del centro médico.
+### Panel del paciente
+- Visualización de información personal.
+- Consulta de horas médicas agendadas.
+- Consulta de reservas de laboratorio.
+- Visualización del estado de las reservas.
 
-Las reservas y los pacientes se almacenan mediante **localStorage**, sin conexión a una base de datos real.
+## 🚀 Instalación y ejecución
 
-## Ejecución del proyecto
+Clonar el repositorio:
 
-Instalar las dependencias:
+    git clone -b ep3-fullstack https://github.com/Priss-x/CM-Blondie-Salud.git
 
-```bash
-npm install
-```
+Ingresar al proyecto:
 
-Iniciar el proyecto:
+    cd CM-Blondie-Salud
 
-```bash
-npm run dev
-```
+Instalar dependencias:
 
-## Página web
+    npm install
 
-https://priss-x.github.io/CM-Blondie-Salud/
+Ejecutar la aplicación:
+
+    npm run dev
+
+El frontend se ejecuta localmente y necesita que el backend esté funcionando en `http://localhost:3000`.
+
+## 🔗 Backend
+
+La aplicación se conecta a una API REST desarrollada con Node.js y Express, que incluye autenticación JWT, gestión de pacientes, agendamientos y documentación Swagger.
+
+Repositorio del backend:
+
+https://github.com/Priss-x/Blondie-Salud-Backend
+
+## 📌 Consideraciones
+
+- Los datos se gestionan mediante el backend.
+- Actualmente, el almacenamiento del servidor es temporal y se reinicia al detenerlo.
+- Proyecto desarrollado con fines académicos.
+
+---
+
+**Desarrollado por:** Priscila Contreras  
