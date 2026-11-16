@@ -8,33 +8,44 @@ function InicioSesion() {
     const [password, setPassword] = useState("")
     const [mensaje, setMensaje] = useState("")
 
-    function iniciarSesion(evento) {
-        evento.preventDefault()
+    
+async function iniciarSesion(evento) {evento.preventDefault()
+    setMensaje("")
 
-        if (email === "" || password === "") {
-            setMensaje("Debe completar todos los campos")
+    if (email.trim() === "" || password === "") {
+        setMensaje("Debe completar todos los campos")
+        return
+    }
+
+    try {
+        const respuesta = await fetch("http://localhost:3000/api/auth/login",{
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({email: email.trim().toLowerCase(),password: password})
+            }
+        )
+
+        if (!respuesta.ok){setMensaje("Correo o contraseña incorrectos")
             return
         }
 
-        if (email === "admin@blondiesalud.cl" && password === "9999") {
-            localStorage.setItem("rol_usuario", "admin")
-            navigate("/admin")
+        const datos = await respuesta.json()
 
-        } else if ( email === "recepcionista@blondiesalud.cl" &&password === "9999") {
-            localStorage.setItem("rol_usuario", "recepcionista")
-            navigate("/recepcionista")
+        sessionStorage.setItem("token", datos.token)
+        localStorage.setItem("rol_usuario", datos.rol)
 
-        } else {
-            const pacientes = JSON.parse(localStorage.getItem("pacientes_registrados")) || []
-            const pacienteEncontrado = pacientes.find((paciente) =>paciente.email === email.trim().toLowerCase() &&
-            paciente.password === password)
-
-        if (pacienteEncontrado) {localStorage.setItem("rol_usuario", "paciente")
-                localStorage.setItem("paciente_actual", pacienteEncontrado.run)
+        if (datos.rol === "admin") {navigate("/admin")
+        } else if (datos.rol === "recepcionista") {navigate("/recepcionista")
+        } else if (datos.rol === "paciente") {localStorage.setItem("paciente_actual", datos.run)
             navigate("/paciente")
-            } else {setMensaje("Correo o contraseña incorrectos")}
+        } else {
+            setMensaje("No se pudo identificar el rol del usuario")
         }
+
+    } catch (error) {setMensaje("No se pudo conectar con el servidor")
     }
+}
+
 
     return (
         <main className="container mt-5 mb-5">
