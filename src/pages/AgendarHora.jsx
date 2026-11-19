@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Navigate } from "react-router"
 
 function AgendarHora() {
@@ -14,6 +14,8 @@ function AgendarHora() {
     const [hora, setHora] = useState("")
     const [mensaje, setMensaje] = useState("")
     const [enviando, setEnviando] = useState(false)
+    const [servicios, setServicios] = useState([])
+    const [errorPrecios, setErrorPrecios] = useState("")
 
     const medicos = {
         "Medicina General": [
@@ -46,6 +48,32 @@ function AgendarHora() {
         hoy.getFullYear() + "-" +
         String(hoy.getMonth() + 1).padStart(2, "0") + "-" +
         String(hoy.getDate()).padStart(2, "0")
+    
+    useEffect(() => {
+        async function obtenerServicios() {
+            try {const respuesta = await fetch("http://localhost:3000/api/servicios")
+                if (!respuesta.ok) {throw new Error("Error al obtener servicios")}
+                const datos = await respuesta.json()
+                setServicios(datos)
+            } catch (error) {
+                setErrorPrecios("No se pudieron cargar los precios.")}
+        }
+
+        obtenerServicios()
+    }, [])
+
+    const servicioSeleccionado = servicios.find(
+        (servicio) => servicio.nombre === especialidad
+    )
+
+    const precioFormateado = (precio) => {
+        return Number(precio).toLocaleString("es-CL", {
+            style: "currency",
+            currency: "CLP",
+            maximumFractionDigits: 0
+        })
+    }
+
 
     async function agendarHora(evento) {
         evento.preventDefault()
@@ -69,7 +97,7 @@ function AgendarHora() {
 
             const datos = await respuesta.json()
 
-            if (!respuesta.ok) {setMensaje(  datos.mensaje || "No se pudo agendar la hora.")
+            if (!respuesta.ok) {setMensaje(datos.mensaje || "No se pudo agendar la hora.")
                 return
             }
             setMensaje(`¡Hora agendada correctamente! Número de orden: ${datos.reserva.numeroOrden}`)
@@ -137,6 +165,24 @@ function AgendarHora() {
                                         <option value="Neurología">Neurología</option>
                                     </select>
                                 </div>
+
+                              {especialidad && (
+                                    <div className="alert alert-light border">
+                                        {servicioSeleccionado ? (
+                                            <>
+                                                <strong>Valor de la consulta: </strong>
+                                                {precioFormateado(servicioSeleccionado.precio)}
+                                                <div className="small text-muted">
+                                                    El pago se realiza de manera presencial en el centro médico. El valor puede variar según su previsión de salud (Fonasa o Isapre).
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <span>
+                                                {errorPrecios || "Precio no disponible."}
+                                            </span>
+                                        )}
+                                    </div>
+                                )}
 
                                 <div className="mb-3">
                                     <label className="form-label">Médico</label>
